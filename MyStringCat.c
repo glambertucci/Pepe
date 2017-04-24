@@ -1,85 +1,38 @@
 #include <stdio.h>
-#define SIZEARRAY (9)
-char *myStringCat ( char * dest, const char * source);
+#define SIZE (20)
+char * MyStringCat ( const char * pointer, char array[SIZE] );
 
 int main (void)
 {
-	const char * source = "guido";
-	char array [SIZEARRAY];
-	
-//	printf("--- %s \n", source);
-	
-	int reg;
-	
-	for (reg = 0; reg < SIZEARRAY ; ++reg)
-	{
-		array[reg] = 0;
-	}
-	array[0] = 'H';
-	array[1] = 'o';
-	array[2] = 'l';
-	array[3] = 'a';
-	array[4] = ' ';
-	
-//	printf("--- %s \n", array);
-	
+	const char * source = "hola";
+	char letter[SIZE] = "Puto ";
 
-	char * string = myStringCat( array,source);
+	char * string = MyStringCat(source, letter);
 	
-	printf ("%s\n", string);
-	
-	
+	printf(" %s \n", string);
+
 	return 0;
 }
 
-
-char * myStringCat ( char * dest, const char * source)
+char * MyStringCat ( const char * pointer, char array[SIZE] )
 {
-	char * tempdest = dest;
-	//printf("%p
-	const char * tempsource = source;
+	const char * tempsource = pointer;
+	char * templetter = array;
 	
-//	printf("---Copio los strings\n");
-//	printf("--- %s \n", tempsource);
-//	printf("--- %s \n", tempdest);
-
+	int sourcecounter, lettercounter, copycounter;
 	
-	int stringdest, count;
-	
-	for ( stringdest = 0 ; *tempdest != 0 ; ++stringdest)
-	{
-	//	printf("%c\n", *tempdest);
-		++tempdest;
+	for ( lettercounter = 0 ; *(templetter + lettercounter) != 0 ; ++lettercounter )	// Este for se encarga de saber cuantos caracteres tiene el string
+	{																					// del destino
+	}
 		
-	}
-	tempdest = tempdest - stringdest;
-//	printf("-string- %s \n", tempdest);
-//	printf("---%d\n", stringdest);
-	
-	for ( count = 0 ; count < 5 ; ++count)
-	{
-	//	printf("%c--", tempsource[count]);
-	//	printf("%c\n", tempdest[stringdest + count ]);
-		*( tempdest + stringdest + count ) = *(tempsource + count);
+	for ( sourcecounter = 0 ; *(tempsource + sourcecounter) != 0 ; ++sourcecounter )	//Este for se encarga de saber cuantos caracteres tiene el string
+	{																					//de la fuente
 	}
 	
-	printf("--- %s \n", tempdest);
+	for ( copycounter = 0 ; copycounter < sourcecounter ; ++copycounter )				//Este for se encarga de guardar los caracteres de la fuente en el
+	{																					//arreglo de destino.
+		*( templetter + lettercounter + copycounter ) = *( tempsource + copycounter);
+	}
 	
-	printf("---Sale bien de la funcion\n");
-	
-	return tempdest;
+	return templetter;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
