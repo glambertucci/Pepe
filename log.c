@@ -98,11 +98,18 @@ int main (int argc, char *argv[])
 		
 	if ( error == TRUE )
 	{
-		printf("La cagaste\n");
+		printf("Usuario o Constrasena invalida\n");
 	}
 	else
 	{
-		printf("OK\n");
+		if ( ValidString(argv[1],arguments[0]))
+		{
+			printf("Bienvenido %s\n",argv[2]);
+		}
+		else if (ValidString(argv[3],arguments[0]))
+		{
+			printf("Bienvenido %s\n",argv[4]);
+		}
 	}
 	
 
